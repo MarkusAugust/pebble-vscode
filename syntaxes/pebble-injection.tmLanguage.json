@@ -1,0 +1,192 @@
+{
+  "scopeName": "injection.html.pebble",
+  "injectionSelector": "L:text.html",
+  "patterns": [
+    { "include": "#pebble-comment" },
+    { "include": "#pebble-statement" },
+    { "include": "#pebble-expression" }
+  ],
+  "repository": {
+    "pebble-comment": {
+      "name": "comment.block.pebble",
+      "begin": "\\{#",
+      "end": "#\\}",
+      "patterns": [
+        {
+          "name": "comment.block.pebble",
+          "match": "."
+        }
+      ]
+    },
+    "pebble-statement": {
+      "name": "meta.tag.template.pebble",
+      "begin": "(\\{%)(-)?",
+      "end": "(-)?(%\\})",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.pebble" },
+        "2": { "name": "keyword.operator.whitespace.pebble" }
+      },
+      "endCaptures": {
+        "1": { "name": "keyword.operator.whitespace.pebble" },
+        "2": { "name": "punctuation.definition.tag.end.pebble" }
+      },
+      "patterns": [
+        {
+          "name": "keyword.control.pebble",
+          "match": "\\b(if|else|elseif|endif|for|endfor|block|endblock|extends|include|import|from|macro|endmacro|set|filter|endfilter|autoescape|endautoescape|verbatim|endverbatim|cache|endcache|parallel|endparallel|embed|endembed|flush)\\b"
+        },
+        {
+          "name": "keyword.operator.logical.pebble",
+          "match": "\\b(in|is|not|and|or|as|contains|equals)\\b"
+        },
+        { "include": "#pebble-expression-content" }
+      ]
+    },
+    "pebble-expression": {
+      "name": "meta.expression.pebble",
+      "begin": "(\\{\\{)(-)?",
+      "end": "(-)?(\\}\\})",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.tag.begin.pebble" },
+        "2": { "name": "keyword.operator.whitespace.pebble" }
+      },
+      "endCaptures": {
+        "1": { "name": "keyword.operator.whitespace.pebble" },
+        "2": { "name": "punctuation.definition.tag.end.pebble" }
+      },
+      "patterns": [{ "include": "#pebble-expression-content" }]
+    },
+    "pebble-expression-content": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.pebble",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.pebble",
+              "match": "\\\\."
+            },
+            {
+              "name": "meta.interpolation.pebble",
+              "begin": "#\\{",
+              "end": "\\}",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.interpolation.begin.pebble"
+                }
+              },
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.interpolation.end.pebble"
+                }
+              },
+              "patterns": [{ "include": "#pebble-expression-content" }]
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.pebble",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.pebble",
+              "match": "\\\\."
+            },
+            {
+              "name": "meta.interpolation.pebble",
+              "begin": "#\\{",
+              "end": "\\}",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.definition.interpolation.begin.pebble"
+                }
+              },
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.definition.interpolation.end.pebble"
+                }
+              },
+              "patterns": [{ "include": "#pebble-expression-content" }]
+            }
+          ]
+        },
+        {
+          "name": "constant.numeric.pebble",
+          "match": "\\b\\d+(\\.\\d+)?[lLfF]?\\b"
+        },
+        {
+          "name": "constant.language.boolean.pebble",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "constant.language.null.pebble",
+          "match": "\\b(null|none)\\b"
+        },
+        {
+          "name": "keyword.operator.comparison.pebble",
+          "match": "(==|!=|<=?|>=?)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.pebble",
+          "match": "(\\+|-|\\*|/|%)"
+        },
+        {
+          "name": "keyword.operator.logical.pebble",
+          "match": "\\b(and|or|not|is|in|contains|equals)\\b"
+        },
+        {
+          "name": "keyword.operator.ternary.pebble",
+          "match": "(\\?|:)"
+        },
+        {
+          "name": "support.function.filter.pebble",
+          "match": "\\|\\s*(abbreviate|abs|base64decode|base64encode|capitalize|date|default|escape|first|join|last|length|lower|merge|numberformat|raw|replace|reverse|rsort|sha256|slice|sort|split|title|trim|upper|urlencode)\\b"
+        },
+        {
+          "name": "support.function.builtin.pebble",
+          "match": "\\b(block|i18n|max|min|parent|range)\\s*(?=\\()"
+        },
+        {
+          "name": "support.function.test.pebble",
+          "match": "\\b(is)\\s+(not\\s+)?(empty|even|odd|null|map|iterable|defined)\\b"
+        },
+        {
+          "name": "variable.language.loop.pebble",
+          "match": "\\bloop\\.(index|length|first|last|revindex)\\b"
+        },
+        {
+          "name": "meta.bracket.square.pebble",
+          "begin": "\\[",
+          "end": "\\]",
+          "patterns": [{ "include": "#pebble-expression-content" }]
+        },
+        {
+          "name": "meta.bracket.round.pebble",
+          "begin": "\\(",
+          "end": "\\)",
+          "patterns": [{ "include": "#pebble-expression-content" }]
+        },
+        {
+          "name": "meta.bracket.curly.pebble",
+          "begin": "\\{",
+          "end": "\\}",
+          "patterns": [{ "include": "#pebble-expression-content" }]
+        },
+        {
+          "name": "variable.other.pebble",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+        },
+        {
+          "name": "punctuation.accessor.pebble",
+          "match": "\\."
+        },
+        {
+          "name": "punctuation.separator.pebble",
+          "match": ","
+        }
+      ]
+    }
+  }
+}

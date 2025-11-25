@@ -1,0 +1,39 @@
+{
+  "comments": {
+    "blockComment": ["{#", "#}"]
+  },
+  "brackets": [
+    ["{%", "%}"],
+    ["{{", "}}"],
+    ["{#", "#}"],
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"]
+  ],
+  "autoClosingPairs": [
+    { "open": "{%", "close": "%}" },
+    { "open": "{{", "close": "}}" },
+    { "open": "{#", "close": "#}" },
+    { "open": "{", "close": "}" },
+    { "open": "[", "close": "]" },
+    { "open": "(", "close": ")" },
+    { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+    { "open": "\"", "close": "\"", "notIn": ["string", "comment"] }
+  ],
+  "surroundingPairs": [
+    ["{%", "%}"],
+    ["{{", "}}"],
+    ["{#", "#}"],
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["'", "'"],
+    ["\"", "\""]
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*{%\\s*(if|for|block|macro|filter|autoescape|verbatim|cache|parallel|embed)\\b",
+      "end": "^\\s*{%\\s*(endif|endfor|endblock|endmacro|endfilter|endautoescape|endverbatim|endcache|endparallel|endembed)\\s*%}"
+    }
+  }
+}
