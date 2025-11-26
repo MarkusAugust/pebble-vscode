@@ -1,14 +1,16 @@
 # Pebble Template in HTML Support for VS Code
 
+Compatible with Pebble Templates 4.0+
+
 [Pebble Templates](https://pebbletemplates.io/) support for HTML files in VS Code.
 
 *"What is best in template coding? To crush your syntax errors, see them driven before you, and to hear the lamentations of the improperly closed Pebble tags!"*
 
 ## Features
 
-**Syntax Highlighting** - All tags, filters, functions, tests, and operators  
-**Code Completion** - Smart autocomplete with snippets  
-**Snippets** - Quick insertion for `{% %}`, `{{ }}`, `{# #}` and complete blocks  
+**Syntax Highlighting** - Complete Pebble syntax support  
+**Smart Completion** - Context-aware IntelliSense for tags, filters, functions, and operators  
+**Code Snippets** - Quick insertion templates for common patterns  
 
 
 ## Quick Examples
@@ -31,10 +33,10 @@
 
 ## Supported Pebble Features
 
-- **16 Tags**: `if`, `for`, `block`, `extends`, `include`, `macro`, `set`, etc.
-- **26 Filters**: `upper`, `date`, `join`, `base64encode`, `sha256`, etc.
-- **6 Functions**: `max`, `min`, `range`, `block`, `parent`, `i18n`
-- **6 Tests**: `empty`, `even`, `odd`, `null`, `map`, `iterable`
+- **Tags**: `if`, `for`, `block`, `extends`, `include`, `macro`, `set`, etc.
+- **Filters**: `upper`, `date`, `join`, `base64encode`, `sha256`, etc.
+- **Functions**: `max`, `min`, `range`, `block`, `parent`, `i18n`
+- **Tests**: `empty`, `even`, `odd`, `null`, `map`, `iterable`
 - **All Operators**: Math, comparison, logical, ternary
 - **String interpolation**: `"Hello #{name}"`
 - **Whitespace control**: `{{- content -}}`
@@ -43,20 +45,34 @@
 
 Open any `.html` file and start writing Pebble template syntax!
 
+**Snippets:**
+- Type `pebble-statement` for a complete `{% %}` 
+- Use specific triggers like `if`, `for`, `block` for full template constructs
+- All snippets support Tab completion and parameter navigation
+
+**Auto-completion:**
+- IntelliSense appears automatically when typing inside Pebble blocks
+- Filter suggestions after `|` with parameter hints
+- Loop variables after `loop.` (index, first, last, etc.)
+
 ### Available Snippets
 
 | Trigger | Description | Result |
 |---------|-------------|---------|
-| `{{` | Expression block | `{{ expression }}` |
-| `{%` | Statement block | `{% statement %}` |
-| `{#` | Comment block | `{# comment #}` |
+| `pebble-expression` | Expression block | `{{ expression }}` |
+| `pebble-statement` | Statement block | `{% statement %}` |
+| `pebble-comment` | Comment block | `{# comment #}` |
 | `if` | If statement | `{% if condition %}...{% endif %}` |
+| `ifelse` | If-else statement | `{% if condition %}...{% else %}...{% endif %}` |
 | `for` | For loop | `{% for item in items %}...{% endfor %}` |
 | `block` | Block definition | `{% block name %}...{% endblock %}` |
 | `extends` | Extend template | `{% extends "parent.html" %}` |
 | `include` | Include template | `{% include "template.html" %}` |
 | `macro` | Macro definition | `{% macro name(args) %}...{% endmacro %}` |
 | `set` | Set variable | `{% set variable = value %}` |
+| `filter` | Filter block | `{% filter name %}...{% endfilter %}` |
+| `verbatim` | Verbatim block | `{% verbatim %}...{% endverbatim %}` |
+| `cache` | Cache block | `{% cache name %}...{% endcache %}` |
 
 *Type the trigger word and press Tab or Ctrl+Space to use snippets*
 
