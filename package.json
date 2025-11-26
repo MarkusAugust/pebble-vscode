@@ -1,7 +1,9 @@
 {
   "name": "pebble-support",
   "displayName": "Pebble Template Support",
-  "version": "0.2.1",
+  "description": "Pebble template engine syntax highlighting for HTML files",
+  "version": "0.2.3",
+  "license": "BSD-3-Clause",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -9,11 +11,17 @@
     "type": "git",
     "url": "https://github.com/MarkusAugust/pebble-vscode"
   },
+  "author": {
+    "name": "Markus August",
+    "url": "https://github.com/MarkusAugust/pebble-vscode"
+  },
+  "homepage": "https://github.com/MarkusAugust/pebble-vscode",
   "icon": "pebbleInHtml.png",
   "publisher": "MarkusAugust",
   "keywords": [
     "pebble",
     "template",
+    "pebble-html",
     "html",
     "syntax"
   ],
