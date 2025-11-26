@@ -1,4 +1,4 @@
-# Pebble Template Support for VS Code
+# Pebble Template in HTML Support for VS Code
 
 [Pebble Templates](https://pebbletemplates.io/) support for HTML files in VS Code.
 
