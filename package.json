@@ -2,7 +2,7 @@
   "name": "pebble-support",
   "displayName": "Pebble Template Support",
   "description": "Pebble template engine syntax highlighting and snippets for HTML files",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "license": "BSD-3-Clause",
   "engines": {
     "vscode": "^1.60.0"
