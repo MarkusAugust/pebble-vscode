@@ -8,7 +8,7 @@
 
 **Syntax Highlighting** - All tags, filters, functions, tests, and operators  
 **Code Completion** - Smart autocomplete with snippets  
-**Bracket Matching** - Auto-closing `{% %}`, `{{ }}`, `{# #}`  
+**Snippets** - Quick insertion for `{% %}`, `{{ }}`, `{# #}` and complete blocks  
 
 
 ## Quick Examples
@@ -40,7 +40,25 @@
 - **Whitespace control**: `{{- content -}}`
 
 ##  Usage
+
 Open any `.html` file and start writing Pebble template syntax!
+
+### Available Snippets
+
+| Trigger | Description | Result |
+|---------|-------------|---------|
+| `{{` | Expression block | `{{ expression }}` |
+| `{%` | Statement block | `{% statement %}` |
+| `{#` | Comment block | `{# comment #}` |
+| `if` | If statement | `{% if condition %}...{% endif %}` |
+| `for` | For loop | `{% for item in items %}...{% endfor %}` |
+| `block` | Block definition | `{% block name %}...{% endblock %}` |
+| `extends` | Extend template | `{% extends "parent.html" %}` |
+| `include` | Include template | `{% include "template.html" %}` |
+| `macro` | Macro definition | `{% macro name(args) %}...{% endmacro %}` |
+| `set` | Set variable | `{% set variable = value %}` |
+
+*Type the trigger word and press Tab or Ctrl+Space to use snippets*
 
 ## Contribution
 I made this because I needed it. Feel free to submit any improvements!

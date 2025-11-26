@@ -1,0 +1,106 @@
+{
+  "Pebble Expression": {
+    "prefix": ["{{", "pebble-expression", "expr"],
+    "body": ["{{ $1 }}"],
+    "description": "Pebble expression block"
+  },
+  "Pebble Statement": {
+    "prefix": ["{%", "pebble-statement", "stmt"],
+    "body": ["{% $1 %}"],
+    "description": "Pebble statement block"
+  },
+  "Pebble Comment": {
+    "prefix": ["{#", "pebble-comment", "comment"],
+    "body": ["{# $1 #}"],
+    "description": "Pebble comment block"
+  },
+  "Pebble If Statement": {
+    "prefix": ["if", "pebble-if"],
+    "body": [
+      "{% if $1 %}",
+      "\t$2",
+      "{% endif %}"
+    ],
+    "description": "Pebble if statement"
+  },
+  "Pebble If-Else Statement": {
+    "prefix": ["ifelse", "pebble-ifelse"],
+    "body": [
+      "{% if $1 %}",
+      "\t$2",
+      "{% else %}",
+      "\t$3",
+      "{% endif %}"
+    ],
+    "description": "Pebble if-else statement"
+  },
+  "Pebble For Loop": {
+    "prefix": ["for", "pebble-for"],
+    "body": [
+      "{% for $1 in $2 %}",
+      "\t$3",
+      "{% endfor %}"
+    ],
+    "description": "Pebble for loop"
+  },
+  "Pebble Block": {
+    "prefix": ["block", "pebble-block"],
+    "body": [
+      "{% block $1 %}",
+      "\t$2",
+      "{% endblock %}"
+    ],
+    "description": "Pebble block definition"
+  },
+  "Pebble Extends": {
+    "prefix": ["extends", "pebble-extends"],
+    "body": ["{% extends \"$1\" %}"],
+    "description": "Extend parent template"
+  },
+  "Pebble Include": {
+    "prefix": ["include", "pebble-include"],
+    "body": ["{% include \"$1\" %}"],
+    "description": "Include another template"
+  },
+  "Pebble Macro": {
+    "prefix": ["macro", "pebble-macro"],
+    "body": [
+      "{% macro $1($2) %}",
+      "\t$3",
+      "{% endmacro %}"
+    ],
+    "description": "Pebble macro definition"
+  },
+  "Pebble Set Variable": {
+    "prefix": ["set", "pebble-set"],
+    "body": ["{% set $1 = $2 %}"],
+    "description": "Set a variable"
+  },
+  "Pebble Filter": {
+    "prefix": ["filter", "pebble-filter"],
+    "body": [
+      "{% filter $1 %}",
+      "\t$2",
+      "{% endfilter %}"
+    ],
+    "description": "Apply filter to block"
+  },
+  "Pebble Verbatim": {
+    "prefix": ["verbatim", "pebble-verbatim"],
+    "body": [
+      "{% verbatim %}",
+      "\t$1",
+      "{% endverbatim %}"
+    ],
+    "description": "Verbatim block (no processing)"
+  },
+  "Pebble Cache": {
+    "prefix": ["cache", "pebble-cache"],
+    "body": [
+      "{% cache $1 %}",
+      "\t$2",
+      "{% endcache %}"
+    ],
+    "description": "Cache block"
+  }
+}

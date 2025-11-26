@@ -1,8 +1,8 @@
 {
   "name": "pebble-support",
   "displayName": "Pebble Template Support",
-  "description": "Pebble template engine syntax highlighting for HTML files",
-  "version": "0.2.3",
+  "description": "Pebble template engine syntax highlighting and snippets for HTML files",
+  "version": "0.2.4",
   "license": "BSD-3-Clause",
   "engines": {
     "vscode": "^1.60.0"
@@ -41,6 +41,12 @@
           "text.html.basic",
           "text.html.derivative"
         ]
+      }
+    ],
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets/pebble.json"
       }
     ]
   },

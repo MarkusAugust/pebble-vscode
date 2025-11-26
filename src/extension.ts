@@ -1,6 +1,7 @@
 import * as vscode from "vscode"
 
 export function activate(context: vscode.ExtensionContext) {
+
   // Completion provider for HTML files with Pebble
   const completionProvider = vscode.languages.registerCompletionItemProvider(
     { scheme: "file", language: "html" },
