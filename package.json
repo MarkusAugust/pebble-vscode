@@ -2,7 +2,7 @@
   "name": "pebble-support",
   "displayName": "Pebble Template Support",
   "description": "Pebble template engine syntax highlighting and snippets for HTML files",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "BSD-3-Clause",
   "engines": {
     "vscode": "^1.60.0"
@@ -51,10 +51,11 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "bun run compile",
+    "vscode:prepublish": "bun run test && bun run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "lint": "biome check --write"
+    "lint": "biome check --write",
+    "test": "bun test"
   },
   "private": true,
   "devDependencies": {
