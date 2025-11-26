@@ -5,6 +5,18 @@
   "engines": {
     "vscode": "^1.60.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarkusAugust/pebble-vscode"
+  },
+  "icon": "pebbleInHtml.png",
+  "publisher": "MarkusAugust",
+  "keywords": [
+    "pebble",
+    "template",
+    "html",
+    "syntax"
+  ],
   "categories": [
     "Programming Languages"
   ],
@@ -27,7 +39,8 @@
   "scripts": {
     "vscode:prepublish": "bun run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "lint": "biome check --write"
   },
   "private": true,
   "devDependencies": {
@@ -37,6 +50,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@biomejs/biome": "^2.3.7",
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.106.1"
   }
