@@ -5,6 +5,18 @@ All notable changes to the Pebble Template Support extension will be documented 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [0.3.2] - 2025-11-26
+
+### Added
+- Semantic versioning workflow with git tags
+- Version scripts for patch, minor, and major releases
+- Proper changelog documentation
+
+### Changed
+- Improved development workflow with structured versioning
+
 ## [0.3.1] - 2025-11-26
 
 ### Added
