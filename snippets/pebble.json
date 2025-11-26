@@ -5,7 +5,7 @@
     "description": "Pebble expression block"
   },
   "Pebble Statement": {
-    "prefix": ["{%", "pebble-statement", "stmt"],
+    "prefix": ["pebble-statement", "stmt"],
     "body": ["{% $1 %}"],
     "description": "Pebble statement block"
   },
