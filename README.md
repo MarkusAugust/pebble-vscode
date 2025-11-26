@@ -29,7 +29,7 @@
 {% extends "base.html" %} {% block content %}{{ parent() }}{% endblock %}
 ```
 
-## Supported Features
+## Supported Pebble Features
 
 - **16 Tags**: `if`, `for`, `block`, `extends`, `include`, `macro`, `set`, etc.
 - **26 Filters**: `upper`, `date`, `join`, `base64encode`, `sha256`, etc.
