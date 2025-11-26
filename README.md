@@ -37,12 +37,12 @@ Complete [Pebble Templates](https://pebbletemplates.io/) support for HTML files 
 - **String interpolation**: `"Hello #{name}"`
 - **Whitespace control**: `{{- content -}}`
 
-## Installation
-
-1. Copy to VS Code extensions directory (`~/.vscode/extensions`)
-2. Restart VS Code
-3. Open `.html` files with Pebble syntax
+##  Usage
+Open any `.html` file and start writing Pebble template syntax!
 
 ## License
 
 MIT
+
+
+*"What is best in template coding? To crush your syntax errors, see them driven before you, and to hear the lamentations of the improperly closed Pebble tags!"*
