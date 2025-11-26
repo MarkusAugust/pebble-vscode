@@ -138,7 +138,10 @@ export function activate(context: vscode.ExtensionContext) {
             }
             completions.push(item)
           })
+        }
 
+        // Operators (available in both statements and expressions)
+        if (inStatement || inExpression) {
           // Logical operators
           const operators = [
             "and",
