@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.3] - 2025-11-26
+
+### Fixed
+- Replaced deprecated `substr` method with `substring`
+
+### Added
+- Filter completion tests to ensure quality
+- Snippets category in package.json
+
 ## [0.3.2] - 2025-11-26
 
 ### Added

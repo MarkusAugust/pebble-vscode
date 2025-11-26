@@ -1,7 +1,6 @@
 import * as vscode from "vscode"
 
 export function activate(context: vscode.ExtensionContext) {
-
   // Completion provider for HTML files with Pebble
   const completionProvider = vscode.languages.registerCompletionItemProvider(
     { scheme: "file", language: "html" },
@@ -12,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
       ) {
         const linePrefix = document
           .lineAt(position)
-          .text.substr(0, position.character)
+          .text.substring(0, position.character)
 
         // Check if we're inside {% %} or {{ }}
         const lastOpenStatement = linePrefix.lastIndexOf("{%")

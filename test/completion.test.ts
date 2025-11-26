@@ -1,5 +1,8 @@
 import { describe, expect, test } from "bun:test"
-import { getOperatorCompletions } from "./completion-logic"
+import {
+  getFilterCompletions,
+  getOperatorCompletions,
+} from "./completion-logic"
 
 describe("Pebble Expression Completion", () => {
   test("CRITICAL: Provides operators in {{ }} expressions", () => {
@@ -52,5 +55,43 @@ describe("Pebble Expression Completion", () => {
     const operators = getOperatorCompletions(linePrefix)
 
     expect(operators).toHaveLength(0)
+  })
+
+  test("CRITICAL: Provides filters after pipe in expressions", () => {
+    // Test core filter functionality - filters should work after |
+    const linePrefix = "<p>{{ user.name | "
+
+    const filters = getFilterCompletions(linePrefix)
+
+    // Critical assertions - these filters MUST be available after pipe
+    expect(filters).toContain("upper")
+    expect(filters).toContain("lower")
+    expect(filters).toContain("default")
+    expect(filters).toContain("date")
+
+    // Verify we don't get duplicate filters (your current bug!)
+    const upperCount = filters.filter((f) => f === "upper").length
+    expect(upperCount).toBe(1) // Should only appear once
+
+    // Verify filter count (should be ~27, not with duplicates)
+    expect(filters.length).toBe(27)
+  })
+
+  test("No filters outside pipe context", () => {
+    // Should not provide filters without pipe
+    const linePrefix = "<p>{{ user.name "
+
+    const filters = getFilterCompletions(linePrefix)
+
+    expect(filters).toHaveLength(0)
+  })
+
+  test("No filters outside Pebble blocks", () => {
+    // Should not provide filters in plain HTML
+    const linePrefix = "<p>Hello world | "
+
+    const filters = getFilterCompletions(linePrefix)
+
+    expect(filters).toHaveLength(0)
   })
 })
